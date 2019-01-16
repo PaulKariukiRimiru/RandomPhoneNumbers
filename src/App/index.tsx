@@ -26,6 +26,7 @@ class App extends Component {
             />
           </div>
         </div>
+        <div className="app-container" />
       </div>
     );
   }
