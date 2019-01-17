@@ -3,25 +3,42 @@ import React, { Component } from 'react';
 import Button from '../Components/Button';
 import ListItem from '../Components/ListItem';
 
+import { AppState } from './interface';
+
 import './App.scss';
 
-class App extends Component {
+class App extends Component<{}, AppState> {
 
-  generateRandomNumbers = (): string[] => {
+  state =  {
+    phonenumbers: []
+  }
+
+  componentDidMount() {
+    this.generateRandomNumbers()
+  }
+  
+
+  generateRandomNumbers = () => {
     let phoneNumbers: Set<string> = new Set();
     while(phoneNumbers.size < 10000) {
       const number = `07${Math.ceil(Math.random()*100000000)}`;
       if (number.length === 9) {
         phoneNumbers.add(number);
       }
-    }
+    };
+
     const result = Array.from(phoneNumbers).sort((first, second) => (
       Number(first) < Number(second) ? 1 : -1
-    ))
-    return result;
+    ));
+
+    this.setState({
+      phonenumbers: result,
+    });
   }
 
   render() {
+    const { phonenumbers } = this.state;
+
     return (
       <div className="app">
         <div className="app-header" >
@@ -33,7 +50,7 @@ class App extends Component {
           </span>
           <div className="app-header__actions">
             <Button
-              onClick={() => {}}
+              onClick={() => this.generateRandomNumbers()}
               text="Generate"
             />
             <Button
@@ -44,7 +61,7 @@ class App extends Component {
         </div>
         <div className="app-container">
           {
-            this.generateRandomNumbers().map((phonenumber) => (
+            phonenumbers.map((phonenumber) => (
               <ListItem
                 phonenumber={phonenumber}
               />
