@@ -6,6 +6,21 @@ import ListItem from '../Components/ListItem';
 import './App.scss';
 
 class App extends Component {
+
+  generateRandomNumbers = (): string[] => {
+    let phoneNumbers: Set<string> = new Set();
+    while(phoneNumbers.size < 10000) {
+      const number = `07${Math.ceil(Math.random()*100000000)}`;
+      if (number.length === 9) {
+        phoneNumbers.add(number);
+      }
+    }
+    const result = Array.from(phoneNumbers).sort((first, second) => (
+      Number(first) < Number(second) ? 1 : -1
+    ))
+    return result;
+  }
+
   render() {
     return (
       <div className="app">
@@ -28,9 +43,13 @@ class App extends Component {
           </div>
         </div>
         <div className="app-container">
-          <ListItem
-            phonenumber="0724820290"
-          />
+          {
+            this.generateRandomNumbers().map((phonenumber) => (
+              <ListItem
+                phonenumber={phonenumber}
+              />
+            ))
+          }
         </div>
       </div>
     );
