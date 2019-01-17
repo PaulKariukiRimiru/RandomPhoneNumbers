@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Button from '../Components/Button';
+import ListItem from '../Components/ListItem';
 
 import './App.scss';
 
@@ -26,7 +27,11 @@ class App extends Component {
             />
           </div>
         </div>
-        <div className="app-container" />
+        <div className="app-container">
+          <ListItem
+            phonenumber="0724820290"
+          />
+        </div>
       </div>
     );
   }

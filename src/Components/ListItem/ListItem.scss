@@ -1,0 +1,13 @@
+@import "src/Theme/base.scss";
+
+.listitem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  height: 70px;
+  font-size: 18px;
+  font-weight: 300;
+  background-color: map-get($colors, secondary);
+  color: map-get($colors, text-secondary);
+}

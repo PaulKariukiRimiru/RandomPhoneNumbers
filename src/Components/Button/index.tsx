@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ButtonProps } from './interface';
+import { ButtonProps } from './interfaces';
 
 import './Button.scss';
 
