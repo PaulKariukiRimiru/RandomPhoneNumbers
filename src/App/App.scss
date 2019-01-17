@@ -56,7 +56,7 @@
     margin-right: auto;
     z-index: 112;
     box-shadow: 2px 2px 14px -4px map-get($colors, primary);
-    background-color: map-get($colors, text-secondary);
+    background-color: map-get($colors, secondary);
     border-radius: 2px;
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Workbook from 'react-excel-workbook'
 
 import Button from '../Components/Button';
 import ListItem from '../Components/ListItem';
@@ -38,7 +39,7 @@ class App extends Component<{}, AppState> {
 
   render() {
     const { phonenumbers } = this.state;
-
+    const fileData = phonenumbers.map((phonenumber) => ({ Phonenumbers: phonenumber }));
     return (
       <div className="app">
         <div className="app-header" >
@@ -53,16 +54,24 @@ class App extends Component<{}, AppState> {
               onClick={() => this.generateRandomNumbers()}
               text="Generate"
             />
-            <Button
-              onClick={() => {}}
-              text="Download"
-            />
+            
+            <Workbook filename="phonenumbers.xlsx" element={
+              <Button
+                onClick={() => {}}
+                text="Download"
+              />
+            }>
+              <Workbook.Sheet data={fileData} name="Phonenumbers">
+                <Workbook.Column label="Phonenumbers" value="Phonenumbers"/>
+              </Workbook.Sheet>
+            </Workbook>
           </div>
         </div>
         <div className="app-container">
           {
-            phonenumbers.map((phonenumber) => (
+            phonenumbers.map((phonenumber, index) => (
               <ListItem
+                key={index}
                 phonenumber={phonenumber}
               />
             ))
