@@ -1,3 +1,8 @@
 export interface AppState {
-  phonenumbers: string[];
+  phonenumbers: number[];
+}
+
+export enum SortType {
+  ascending = 'ascending',
+  descending = 'descending'
 }

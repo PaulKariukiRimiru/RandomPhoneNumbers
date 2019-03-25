@@ -15,7 +15,7 @@ export default class ListItem extends Component<ListItemProps> {
         className="listitem"
         style={itemStyle}
         >
-        {phonenumber}
+        {`0${phonenumber}`}
       </div>
     )
   }

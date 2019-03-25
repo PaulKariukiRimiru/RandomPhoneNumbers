@@ -1,4 +1,4 @@
 export interface ListItemProps {
-  phonenumber: string;
+  phonenumber: number;
   color?: string;
 }
