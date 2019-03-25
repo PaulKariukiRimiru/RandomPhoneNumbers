@@ -1,9 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from '.';
+import React from "react";
+import { mount, ReactWrapper } from "enzyme";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import App from "./";
+
+describe("The App component", () => {
+  let wrapper: ReactWrapper;
+  jest.setTimeout(20000);
+
+  beforeEach(() => {
+    wrapper = mount(<App />);
+  });
+
+  it("matches snapshot", () => {
+    expect(<App />).toMatchSnapshot();
+  });
+
+  it("displays all numbers", () => {
+    expect(wrapper.find('.listitem').length).toEqual(10000);
+  });
 });

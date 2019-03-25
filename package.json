@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
-    "test": "react-scripts test",
+    "test": "react-scripts test -u",
+    "test:coverage": "yarn run test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -32,5 +33,19 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!src/serviceWorker.ts",
+      "!src/index.tsx"
+    ]
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.9.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5"
+  }
 }
