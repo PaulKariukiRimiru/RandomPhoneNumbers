@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/RandomPhoneNumbers/precache-manifest.9e15a6227e0dd4ea662a8479caae0c8e.js"
+  "/RandomPhoneNumbers/precache-manifest.7fc7a95f8e2247bf0b39835c94e8cd80.js"
 );
 
 workbox.clientsClaim();
